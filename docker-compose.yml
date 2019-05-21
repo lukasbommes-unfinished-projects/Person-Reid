@@ -1,0 +1,15 @@
+version: "2.3"
+
+services:
+
+  person_reid:
+    container_name: person_reid
+    build: .
+    runtime: nvidia
+    environment:
+      - DISPLAY
+    ipc: host # for GUI
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw  # for GUI access
+      - .:/ShopfloorMonitor
+      - ./logs:/ShopfloorMonitor/logs
